@@ -1,44 +1,3 @@
-// Vamos a crear clases (class) en js para crear el molde para guardar cada dato de los clientes
-class cliente {
-    nombreCliente;
-    dniCliente;
-    rutCliente;
-}
-
-class cuentaCorriente {
-    numero;
-    #saldo;   // Este # hace que esta propiedad sea privada en js, no mostrara este valor y no se podra modificar desde otra linea de codigo.
-    agencia;
-
-    constructor() { // Esto define que dato va a ser cada propiedad.
-        this.numero = ''; // Inicializa vacio.
-        this.#saldo = 0; // Inicializa en 0.
-        this.agencia = ''; // Inicializa vacio.
-    }
-
-    depositoEnCuenta(valor) {
-        if(valor > 0) {
-            this.#saldo += valor; // el this hace generica la funcion, de esta forma sirve para cada cuentaCorriente de cliente.
-        } else {
-            console.log('El deposito debe ser mayor a 0');
-        }
-        return this.#saldo;
-    }
-
-    retiroEnCuenta(valor) {
-        if(valor <= this.#saldo) {
-            this.#saldo -= valor;
-        } else {
-            console.log('Fondos insuficientes');
-        }
-        return this.#saldo;
-    }
-
-    verSaldo() {
-        return this.#saldo;
-    }
-}
-
 // const cliente1 = new cliente(); // Los parentesis es pq es una clase.
 
 // cliente1.nombreCliente = 'Jose';
@@ -73,7 +32,11 @@ class cuentaCorriente {
 // cuentaCorriente2.retiroEnCuenta(300);
 // console.log(cuentaCorriente2.saldo);
 
-cuentaDeLeonardo = new cuentaCorriente();
+
+
+// Importacion de clases - en la terminal ejecutamos el siguiente comando: npm init, luego el nombre del proyecto 'proyecto' - enter - enter: y ponemos una descripcion - dejamos por ahora el entry point index.js - etc etc - autor: curso alura - licencia nada - y colocames 'yes que esta todo bien. Luego de esos pasos se nos habra generado el archivo package.json en nuestra carpeta del proyecto.
+import { cuentaCorriente } from "./cuentaCorriente.js";
+const cuentaDeLeonardo = new cuentaCorriente();
 
 let saldo = cuentaDeLeonardo.verSaldo();
 console.log(`El saldo actual es ${saldo}`);

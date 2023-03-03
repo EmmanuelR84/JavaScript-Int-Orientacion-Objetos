@@ -1,0 +1,20 @@
+{
+  "name": "cuentasbancopopular",
+  "version": "1.0.0",
+  "description": "Gestion de cuentas corrientes del banco popular",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmmanuelR84/JavaScript-Int-Orientacion-Objetos.git"
+  },
+  "author": "curso alura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmmanuelR84/JavaScript-Int-Orientacion-Objetos/issues"
+  },
+  "homepage": "https://github.com/EmmanuelR84/JavaScript-Int-Orientacion-Objetos#readme",
+  "type": "module"
+}
