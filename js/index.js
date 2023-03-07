@@ -35,13 +35,41 @@
 
 
 // Importacion de clases - en la terminal ejecutamos el siguiente comando: npm init, luego el nombre del proyecto 'proyecto' - enter - enter: y ponemos una descripcion - dejamos por ahora el entry point index.js - etc etc - autor: curso alura - licencia nada - y colocames 'yes que esta todo bien. Luego de esos pasos se nos habra generado el archivo package.json en nuestra carpeta del proyecto.
-import { cuentaCorriente } from "./cuentaCorriente.js";
-const cuentaDeLeonardo = new cuentaCorriente();
+
+import { CuentaCorriente } from "./cuentaCorriente.js";
+import { Cliente } from "./Cliente.js";
+
+const cliente = new Cliente('Leonardo', '13456765', '123224');
+
+const cuentaDeLeonardo = new CuentaCorriente(cliente,'1','001');
+
+console.log(cuentaDeLeonardo);
 
 let saldo = cuentaDeLeonardo.verSaldo();
 console.log(`El saldo actual es ${saldo}`);
 
-saldo = cuentaDeLeonardo.depositoEnCuenta(100);
-console.log(`El saldo actual es ${saldo}`);
+saldo = cuentaDeLeonardo.depositoEnCuenta(1000);
+console.log(`El saldo actual es: ${saldo} (cuenta de leonardo)`);
 saldo = cuentaDeLeonardo.retiroEnCuenta(50);
-console.log(`El saldo actual es ${saldo}`);
+console.log(`El saldo actual es ${saldo} (cuenta Leonardo)`);
+
+
+const cliente2 = new Cliente('Maria', '16456754', '234321');
+const cuentaDeMaria = new CuentaCorriente(cliente2,'2','002');
+
+const cliente3 = new Cliente('Emmanuel', '31265066', '20312650668');
+const cuentaDeEmmanuel = new CuentaCorriente(cliente3, '3', '003');
+
+console.log(cuentaDeLeonardo.cliente);
+console.log(cuentaDeMaria.cliente);
+console.log(cuentaDeEmmanuel.cliente);
+
+cuentaDeLeonardo.transferirParaCuenta(100, cuentaDeMaria);
+
+const saldoMaria = cuentaDeMaria.verSaldo();
+console.log(`El saldo actual es ${saldoMaria} (cuenta de Maria)`);
+let saldoLeonardo = cuentaDeLeonardo.verSaldo();
+console.log(`El saldo actual es ${saldoLeonardo} (cuenta de Leonardo)`);
+
+
+console.log(CuentaCorriente.cantidadCuentas);
